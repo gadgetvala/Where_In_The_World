@@ -18,16 +18,18 @@ const Appbar = (props) => {
 	return (
 		<div className="appbar">
 			<h1 className="brand">Where in the world ?</h1>
-			<div className="searchBar">
-				<input
-					className="search"
-					type="text"
-					id="search"
-					placeholder="Search"
-					onChange={_doSearch}
-					value={value}
-				/>
-			</div>
+			{props.searchBar === true ? (
+				<div className="searchBar">
+					<input
+						className="search"
+						type="text"
+						id="search"
+						placeholder="Search"
+						onChange={_doSearch}
+						value={value}
+					/>
+				</div>
+			) : null}
 		</div>
 	);
 };

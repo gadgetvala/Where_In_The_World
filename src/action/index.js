@@ -1,7 +1,7 @@
 import restcountries from './../apis/restcountries';
 
 export const fetchCountry = () => async (dispatch) => {
-	const response = await restcountries.get('/region/europe');
+	const response = await restcountries.get('/all');
 
 	dispatch({ type: 'FETCH_COUNTRY', payload: response.data });
 };
@@ -16,4 +16,10 @@ export const fetchCountryDetails = (countryCode) => async (dispatch) => {
 	const response = await restcountries.get(`/alpha/${countryCode}`);
 
 	dispatch({ type: 'FETCH_COUNTRY_DETAILS', payload: response.data });
-}
+};
+
+export const fetchCountryByRegion = (region) => async (dispatch) => {
+	const response = await restcountries.get(`/region/${region}`);
+
+	dispatch({ type: 'FETCH_COUNTRY_BY_REGION', payload: response.data });
+};

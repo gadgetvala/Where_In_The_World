@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchCountry, fetchCountryBySearch } from './../../action';
+import { fetchCountry, fetchCountryBySearch, fetchCountryByRegion } from './../../action';
 import Appbar from './../../components/Appbar/Appbar';
 import Grid from './../../components/Grid/Grid.js';
+import DropDown from './../../components/DropDown/DropDown';
 import './Home.css';
 
 class Home extends Component {
@@ -18,11 +19,15 @@ class Home extends Component {
 		}
 	};
 
+	_searchByRegion = (region) => {
+		region === '' ? this.props.fetchCountry() : this.props.fetchCountryByRegion(region);
+	};
+
 	render() {
-		console.log(this.props.countries);
 		return (
 			<div className="main">
-				<Appbar search={this._searchTerm} />
+				<Appbar search={this._searchTerm} searchBar />
+				<DropDown search={this._searchByRegion} />
 				<Grid data={this.props.countries} />
 			</div>
 		);
@@ -33,7 +38,7 @@ const mapStateToProps = (state) => {
 	return { countries: state.countries };
 };
 
-export default connect(mapStateToProps, { fetchCountry, fetchCountryBySearch })(Home);
+export default connect(mapStateToProps, { fetchCountry, fetchCountryBySearch, fetchCountryByRegion })(Home);
 
 // TODO
 //header > where in the world? , dark mode option

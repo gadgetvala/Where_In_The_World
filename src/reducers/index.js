@@ -6,6 +6,8 @@ const countriesReducer = (state = [], action) => {
 			return action.payload;
 		case 'FETCH_COUNTRY_BY_SEARCH':
 			return action.payload;
+		case 'FETCH_COUNTRY_BY_REGION':
+			return action.payload;
 		default:
 			return state;
 	}
