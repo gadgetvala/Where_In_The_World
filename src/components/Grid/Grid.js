@@ -8,9 +8,7 @@ class Grid extends Component {
 		return (
 			<div className="mainGrid">
 				{this.props.data.length === 0 ? (
-					<div className="loaderScreen">
-						<Loader />
-					</div>
+					<Loader />
 				) : (
 					this.props.data.map((el, i) => {
 						return (

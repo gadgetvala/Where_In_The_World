@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchCountryDetails } from './../../action';
 import Appbar from './../../components/Appbar/Appbar';
+import Loader from './../../components/Loader/Loader';
 import './CountryDetail.css';
 
 class CountryDetail extends Component {
@@ -19,37 +20,41 @@ class CountryDetail extends Component {
 						<p>Back</p>
 					</Link>
 				</div>
-				<div className="countryDetails_details">
-					<div className="countryDetails_details--img">
-						<img src={this.props.detail.flag} alt={this.props.detail.alpha3Code} />
+				{Object.keys(this.props.detail).length === 0 ? (
+					<Loader />
+				) : (
+					<div className="countryDetails_details">
+						<div className="countryDetails_details--img">
+							<img src={this.props.detail.flag} alt={this.props.detail.alpha3Code} />
+						</div>
+						<div className="countryDetails_details--data">
+							<p className="makebig">
+								<span className="makeBlock">Name:</span> {this.props.detail.name}
+							</p>
+							<p>
+								<span className="makeBlock">Code:</span> {this.props.detail.alpha3Code}
+							</p>
+							<p>
+								<span className="makeBlock">Capital:</span> {this.props.detail.capital}
+							</p>
+							<p>
+								<span className="makeBlock">Region:</span> {this.props.detail.region}
+							</p>
+							<p>
+								<span className="makeBlock">Area:</span> {this.props.detail.area}
+							</p>
+							<p>
+								<span className="makeBlock">Population:</span> {this.props.detail.population}
+							</p>
+							<p>
+								<span className="makeBlock">Timezones:</span>{' '}
+							</p>
+							<p>
+								<span className="makeBlock">Languages:</span>
+							</p>
+						</div>
 					</div>
-					<div className="countryDetails_details--data">
-						<p className="makebig">
-							<span className="makeBlock">Name:</span> {this.props.detail.name}
-						</p>
-						<p>
-							<span className="makeBlock">Code:</span> {this.props.detail.alpha3Code}
-						</p>
-						<p>
-							<span className="makeBlock">Capital:</span> {this.props.detail.capital}
-						</p>
-						<p>
-							<span className="makeBlock">Region:</span> {this.props.detail.region}
-						</p>
-						<p>
-							<span className="makeBlock">Area:</span> {this.props.detail.area}
-						</p>
-						<p>
-							<span className="makeBlock">Population:</span> {this.props.detail.population}
-						</p>
-						<p>
-							<span className="makeBlock">Timezones:</span>{' '}
-						</p>
-						<p>
-							<span className="makeBlock">Languages:</span>
-						</p>
-					</div>
-				</div>
+				)}
 			</div>
 		);
 	}
