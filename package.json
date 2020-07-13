@@ -2,7 +2,6 @@
   "name": "country",
   "version": "0.1.0",
   "description": "Simple PWA, Which Show details of Country",
-  "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
@@ -16,15 +15,8 @@
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/gadgetvala/"
-  },
   "author": "Suraj Verma",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/gadgetvala//issues"
-  },
   "homepage": "https://whereinworld.herokuapp.com/",
   "scripts": {
     "start": "react-scripts start",
