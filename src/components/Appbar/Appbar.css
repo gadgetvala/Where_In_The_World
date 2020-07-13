@@ -29,7 +29,7 @@
 	padding: 0.5rem;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 500px) {
 	.appbar {
 		justify-content: space-between;
 	}

@@ -57,7 +57,7 @@ a{
 	transform: translate(0px, -2px) scale(1.02);
 }
 
-@media (max-width: 400px) {
+@media (max-width: 500px) {
 	.mainGrid {
 		margin: 0;
 	}
