@@ -12,6 +12,7 @@ class CountryDetail extends Component {
 	}
 
 	render() {
+		console.log(this.props.detail.languages);
 		return (
 			<div className="countryDetails">
 				<Appbar searchBar={false} />
@@ -47,10 +48,15 @@ class CountryDetail extends Component {
 								<span className="makeBlock">Population:</span> {this.props.detail.population}
 							</p>
 							<p>
-								<span className="makeBlock">Timezones:</span>{' '}
+								<span className="makeBlock">Timezones:</span> {this.props.detail.timezones[0]}
 							</p>
 							<p>
-								<span className="makeBlock">Languages:</span>
+								<span className="makeBlock">
+									Languages:{' '}
+									{this.props.detail.languages.length > 0
+										? this.props.detail.languages[0].name
+										: 'Unknown'}
+								</span>
 							</p>
 						</div>
 					</div>
