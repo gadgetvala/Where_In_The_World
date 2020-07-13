@@ -15,7 +15,7 @@ class Grid extends Component {
 					this.props.data.map((el, i) => {
 						return (
 							<Link to={{ pathname: `/${el.alpha3Code.toLowerCase()}` }} key={i.toString()}>
-								<div className="item" clickable={true}>
+								<div className="item" clickable={true.toString()}>
 									<img src={el.flag} alt={el.alpha3Code} />
 									<p>
 										<span className="field">{el.name}</span>

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Appbar from './../../components/Appbar/Appbar';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { fetchCountryDetails } from './../../action';
+import Appbar from './../../components/Appbar/Appbar';
 import './CountryDetail.css';
 
 class CountryDetail extends Component {
@@ -11,10 +11,9 @@ class CountryDetail extends Component {
 	}
 
 	render() {
-		console.log(this.props.detail);
 		return (
 			<div className="countryDetails">
-				<Appbar searchBar={false}/>
+				<Appbar searchBar={false} />
 				<div className="countryDetails_backButton">
 					<Link to="/">
 						<p>Back</p>

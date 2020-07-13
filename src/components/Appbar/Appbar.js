@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Appbar.css';
 
 const Appbar = (props) => {
@@ -17,7 +18,9 @@ const Appbar = (props) => {
 
 	return (
 		<div className="appbar">
-			<h1 className="brand">Where in the world ?</h1>
+			<Link to="/">
+				<h1 className="brand">Where in the world ?</h1>
+			</Link>
 			{props.searchBar === true ? (
 				<div className="searchBar">
 					<input
