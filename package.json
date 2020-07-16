@@ -25,7 +25,7 @@
 	"bugs": {
 		"url": "https://github.com/gadgetvala/Where_In_The_World/issues"
 	},
-	"homepage": "https://whereinthecontry.netlify.app/",
+	"homepage": "https://whereinthecountry.netlify.app/",
 	"scripts": {
 		"start": "react-scripts start",
 		"build": "react-scripts build",
