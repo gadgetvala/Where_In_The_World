@@ -17,6 +17,8 @@ const countriesDetailsReducer = (state = {}, action) => {
 	switch (action.type) {
 		case 'FETCH_COUNTRY_DETAILS':
 			return action.payload;
+		case 'EMPTY_COUNTRY_DETAIL':
+			return {};
 		default:
 			return state;
 	}

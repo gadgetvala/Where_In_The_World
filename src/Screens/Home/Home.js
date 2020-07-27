@@ -24,6 +24,7 @@ class Home extends Component {
 	};
 
 	render() {
+		console.log(this.props);
 		return (
 			<div className="main">
 				<Appbar search={this._searchTerm} searchBar />

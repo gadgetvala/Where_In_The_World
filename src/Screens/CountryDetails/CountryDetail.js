@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { fetchCountryDetails } from './../../action';
 import Appbar from './../../components/Appbar/Appbar';
 import Loader from './../../components/Loader/Loader';
-import './CountryDetail.css';
+import { fetchCountryDetails, emptyCountryDetail } from './../../action';
+import { Container, BackContainer, Back, CountryDetailContainer, MakeBig, CountryData, Image } from './style.js';
 
 class CountryDetail extends Component {
 	componentDidMount() {
@@ -12,56 +12,39 @@ class CountryDetail extends Component {
 	}
 
 	render() {
-		console.log(this.props);
 		return (
-			<div className="countryDetails">
+			<Container>
 				<Appbar searchBar={false} />
-				<div className="countryDetails_backButton">
-					<Link to="/">
-						<p>Back</p>
+				<BackContainer>
+					<Link to="/" onClick={this.props.emptyCountryDetail}>
+						<Back>Back</Back>
 					</Link>
-				</div>
+				</BackContainer>
 				{Object.keys(this.props.detail).length === 0 ? (
 					<Loader />
 				) : (
-					<div className="countryDetails_details">
-						<div className="countryDetails_details--img">
-							<img src={this.props.detail.flag} alt={this.props.detail.alpha3Code} />
+					<CountryDetailContainer>
+						<div>
+							<Image src={this.props.detail.flag} alt={this.props.detail.alpha3Code} />
 						</div>
-						<div className="countryDetails_details--data">
-							<p className="makebig">
-								<span className="makeBlock">Name:</span> {this.props.detail.name}
-							</p>
+						<CountryData>
+							<MakeBig>Name: {this.props.detail.name}</MakeBig>
+							<p>Code: {this.props.detail.alpha3Code}</p>
+							<p>Capital: {this.props.detail.capital}</p>
+							<p>Region: {this.props.detail.region}</p>
+							<p>Area: {this.props.detail.area}</p>
+							<p>Population: {this.props.detail.population}</p>
+							<p>Timezones: {this.props.detail.timezones[0]}</p>
 							<p>
-								<span className="makeBlock">Code:</span> {this.props.detail.alpha3Code}
+								Languages:
+								{this.props.detail.languages.length > 0
+									? this.props.detail.languages[0].name
+									: 'Unknown'}
 							</p>
-							<p>
-								<span className="makeBlock">Capital:</span> {this.props.detail.capital}
-							</p>
-							<p>
-								<span className="makeBlock">Region:</span> {this.props.detail.region}
-							</p>
-							<p>
-								<span className="makeBlock">Area:</span> {this.props.detail.area}
-							</p>
-							<p>
-								<span className="makeBlock">Population:</span> {this.props.detail.population}
-							</p>
-							<p>
-								<span className="makeBlock">Timezones:</span> {this.props.detail.timezones[0]}
-							</p>
-							<p>
-								<span className="makeBlock">
-									Languages:{' '}
-									{this.props.detail.languages.length > 0
-										? this.props.detail.languages[0].name
-										: 'Unknown'}
-								</span>
-							</p>
-						</div>
-					</div>
+						</CountryData>
+					</CountryDetailContainer>
 				)}
-			</div>
+			</Container>
 		);
 	}
 }
@@ -70,4 +53,4 @@ const mapStateToProps = (state) => {
 	return { detail: state.countryDetail };
 };
 
-export default connect(mapStateToProps, { fetchCountryDetails })(CountryDetail);
+export default connect(mapStateToProps, { fetchCountryDetails, emptyCountryDetail })(CountryDetail);

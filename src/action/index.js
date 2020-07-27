@@ -23,3 +23,9 @@ export const fetchCountryByRegion = (region) => async (dispatch) => {
 
 	dispatch({ type: 'FETCH_COUNTRY_BY_REGION', payload: response.data });
 };
+
+export const emptyCountryDetail = () => {
+	return {
+		type: 'EMPTY_COUNTRY_DETAIL'
+	};
+};
