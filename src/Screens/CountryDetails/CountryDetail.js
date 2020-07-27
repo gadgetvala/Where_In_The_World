@@ -12,7 +12,7 @@ class CountryDetail extends Component {
 	}
 
 	render() {
-		console.log(this.props.detail.languages);
+		console.log(this.props);
 		return (
 			<div className="countryDetails">
 				<Appbar searchBar={false} />

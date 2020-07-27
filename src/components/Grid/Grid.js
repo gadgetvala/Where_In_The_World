@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Loader from './../Loader/Loader';
+// import { withRouter } from 'react-router-dom';
 import './Grid.css';
 
 class Grid extends Component {
@@ -12,7 +13,11 @@ class Grid extends Component {
 				) : (
 					this.props.data.map((el, i) => {
 						return (
-							<Link to={{ pathname: `/${el.alpha3Code.toLowerCase()}` }} key={i.toString()}>
+							<Link
+								to={{ pathname: `/${el.alpha3Code.toLowerCase()}` }}
+								key={i.toString()}
+								// onClick={() => this.props.history.push(`/${el.alpha3Code.toLowerCase()}`)}
+							>
 								<div className="item" clickable={true.toString()}>
 									<img src={el.flag} alt={el.alpha3Code} />
 									<p>

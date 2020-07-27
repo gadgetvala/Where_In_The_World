@@ -39,9 +39,3 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, { fetchCountry, fetchCountryBySearch, fetchCountryByRegion })(Home);
-
-// TODO
-//header > where in the world? , dark mode option
-// Search bar and filter by
-// country image, country name, population, region, capital
-//ccc5b9,403d39,252422,eb5e28,eb5e28
