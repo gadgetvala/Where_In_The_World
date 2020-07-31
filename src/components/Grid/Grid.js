@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Loader from './../Loader/Loader';
 // import { withRouter } from 'react-router-dom';
-import './Grid.css';
+import { Container, Item, Flag, Detail, Small, Fields } from './Style';
 
 class Grid extends Component {
 	render() {
 		return (
-			<div className="mainGrid">
+			<Container>
 				{this.props.data.length === 0 ? (
 					<Loader />
 				) : (
@@ -18,26 +18,32 @@ class Grid extends Component {
 								key={i.toString()}
 								// onClick={() => this.props.history.push(`/${el.alpha3Code.toLowerCase()}`)}
 							>
-								<div className="item" clickable={true.toString()}>
-									<img src={el.flag} alt={el.alpha3Code} />
-									<p>
-										<span className="field">{el.name}</span>
-									</p>
-									<p className="small">
-										<span className="field">Population:</span> {el.population}
-									</p>
-									<p className="small">
-										<span className="field">Region:</span> {el.region}
-									</p>
-									<p className="small">
-										<span className="field">Code:</span> {el.alpha2Code}
-									</p>
-								</div>
+								<Item clickable={true.toString()}>
+									<Flag src={el.flag} alt={el.alpha3Code} />
+									<Detail>
+										<Fields>{el.name}</Fields>
+									</Detail>
+									<Detail>
+										<Small>
+											<Fields>Population:</Fields> {el.population}
+										</Small>
+									</Detail>
+									<Detail>
+										<Small>
+											<Fields>Region:</Fields> {el.region}
+										</Small>
+									</Detail>
+									<Detail>
+										<Small>
+											<Fields>Code:</Fields> {el.alpha2Code}
+										</Small>
+									</Detail>
+								</Item>
 							</Link>
 						);
 					})
 				)}
-			</div>
+			</Container>
 		);
 	}
 }

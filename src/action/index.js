@@ -29,3 +29,4 @@ export const emptyCountryDetail = () => {
 		type: 'EMPTY_COUNTRY_DETAIL'
 	};
 };
+

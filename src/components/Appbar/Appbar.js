@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './Appbar.css';
+import { TopBar, Brand, SearchBar, SearchInput } from './Style.js';
 
 const Appbar = (props) => {
 	const [value, setValue] = useState('');
@@ -17,13 +17,13 @@ const Appbar = (props) => {
 	};
 
 	return (
-		<div className="appbar">
+		<TopBar>
 			<Link to="/">
-				<h1 className="brand">Where in the world ?</h1>
+				<Brand>Where in the world ?</Brand>
 			</Link>
 			{props.searchBar === true ? (
-				<div className="searchBar">
-					<input
+				<SearchBar>
+					<SearchInput
 						className="search"
 						type="text"
 						id="search"
@@ -31,9 +31,9 @@ const Appbar = (props) => {
 						onChange={_doSearch}
 						value={value}
 					/>
-				</div>
+				</SearchBar>
 			) : null}
-		</div>
+		</TopBar>
 	);
 };
 
