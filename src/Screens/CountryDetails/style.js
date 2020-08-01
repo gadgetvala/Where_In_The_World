@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-	height: 100vh;
-	background-color: #eceeee;
+	height: 100%;
+	background-color: ${({theme}) => theme.background};
 	display: flex;
 	flex-direction: column;
+	color: ${({theme}) => theme.textColor};
 `;
 
 export const BackContainer = styled.div`
@@ -19,11 +20,13 @@ export const BackContainer = styled.div`
 
 export const Back = styled.p`
 	display: inline;
-	color: #fff;
-	background-color: #292a2c;
+	color: ${({theme}) => theme.text};
+	/* background-color: #292a2c; */
+	background-color: ${({theme}) => theme.secondary};
 	border-radius: 10px;
-	background: linear-gradient(145deg, #252628, #2c2d2f);
-	box-shadow: 5px 5px 15px #27282a, -1px -1px 5px #2b2c2e;
+	/* background: linear-gradient(145deg, #252628, #2c2d2f); */
+	/* box-shadow: 5px 5px 15px #27282a, -1px -1px 5px #2b2c2e; */
+	box-shadow: ${({theme}) => theme.dropDownShadow};
 	padding: 0.5rem 0.7rem 0.5rem 0.7rem;
 `;
 
@@ -43,7 +46,7 @@ export const Image = styled.img`
 	width: 30rem;
 	border-radius: 10px;
 	background: linear-gradient(145deg, #d0d2d2, #f7f9f9);
-	box-shadow: 18px 18px 30px #989a9a, -18px -18px 30px #ffffff;
+	box-shadow: ${({theme}) => theme.dropDownShadow};
 
 	@media (max-width: 500px) {
 		height: 10rem;
@@ -58,8 +61,10 @@ export const CountryData = styled.div`
 	letter-spacing: 0.2rem;
 	margin: 2rem;
 	border-radius: 13px;
-	background: linear-gradient(145deg, #d0d2d2, #f7f9f9);
-	box-shadow: 24px 24px 48px #d0d2d2, -24px -24px 48px #feffff;
+	/* background: linear-gradient(145deg, #d0d2d2, #f7f9f9); */
+	background: ${({theme}) => theme.secondary};
+	/* box-shadow: 24px 24px 48px #d0d2d2, -24px -24px 48px #feffff; */
+	box-shadow: ${({theme}) => theme.dropDownShadow};
 	max-width: 32rem;
 
 	@media (max-width: 500px) {

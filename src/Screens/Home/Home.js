@@ -25,17 +25,17 @@ class Home extends Component {
 
 	render() {
 		return (
-			<Container>
-				<Appbar search={this._searchTerm} searchBar />
-				<DropDown search={this._searchByRegion} />
-				<Grid data={this.props.countries} view={this.props.view}/>
+			<Container theme={this.props.theme}>
+				<Appbar search={this._searchTerm} searchBar theme={this.props.theme} />
+				<DropDown search={this._searchByRegion} theme={this.props.theme} />
+				<Grid data={this.props.countries} view={this.props.view} theme={this.props.theme} />
 			</Container>
 		);
 	}
 }
 
 const mapStateToProps = (state) => {
-	return { countries: state.countries , view: state.view};
+	return { countries: state.countries, view: state.view, theme: state.theme };
 };
 
 export default connect(mapStateToProps, { fetchCountry, fetchCountryBySearch, fetchCountryByRegion })(Home);

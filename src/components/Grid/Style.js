@@ -11,7 +11,7 @@ export const Container = styled.div`
 `;
 
 export const Item = styled.div`
-	background-color: #f1f4dc;
+	background-color: ${({ theme }) => theme.secondary};
 	margin: 1.5rem 1.2rem 1.2rem 1.2rem;
 	width: 20rem;
 	border-radius: 8px;
@@ -57,7 +57,7 @@ export const Fields = styled.span`
  */
 
 export const ItemList = styled.div`
-	background-color: #f1f4dc;
+	background-color: ${({ theme }) => theme.secondary};
 	margin: 1.5rem 1.2rem 1.2rem 1.2rem;
 	width: 20rem;
 	border-radius: 8px;

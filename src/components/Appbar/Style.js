@@ -4,10 +4,11 @@ export const TopBar = styled.div`
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	background-color: #f1f4dc;
+	background-color: ${({theme}) => theme.secondary};
 	margin: 0 0 1rem 0;
 	justify-content: space-between;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 15px 0 rgba(0, 0, 0, 0.15);
+	color: ${({theme}) => theme.textColor};
 	@media (max-width: 500px) {
 		justify-content: space-between;
 	}
@@ -36,7 +37,7 @@ export const SearchBar = styled.div`
 `;
 
 export const SearchInput = styled.input`
-	color: #000;
+	color: ${({theme}) => theme.textColor};
 	background-color: #eae6e6;
 	border: 0;
 	border-radius: 2rem;

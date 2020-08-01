@@ -15,9 +15,9 @@ const Appbar = (props) => {
 			props.search(value);
 		});
 	};
-
+	
 	return (
-		<TopBar>
+		<TopBar theme={props.theme}>
 			<Link to="/">
 				<Brand>Where in the world ?</Brand>
 			</Link>

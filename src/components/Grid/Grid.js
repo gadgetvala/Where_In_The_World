@@ -19,7 +19,7 @@ class Grid extends Component {
 								// onClick={() => this.props.history.push(`/${el.alpha3Code.toLowerCase()}`)}
 							>
 								{this.props.view === 'list view' ? (
-									<ItemList clickable={true.toString()}>
+									<ItemList clickable={true.toString()} theme={this.props.theme}>
 										<FlagList src={el.flag} alt={el.alpha3Code} />
 										<DataList>
 											<p>
@@ -33,7 +33,7 @@ class Grid extends Component {
 										</DataList>
 									</ItemList>
 								) : (
-									<Item clickable={true.toString()}>
+									<Item clickable={true.toString()} theme={this.props.theme}>
 										<Flag src={el.flag} alt={el.alpha3Code} />
 										<Detail>
 											<Fields>{el.name}</Fields>

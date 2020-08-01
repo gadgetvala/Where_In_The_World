@@ -13,11 +13,11 @@ class CountryDetail extends Component {
 
 	render() {
 		return (
-			<Container>
-				<Appbar searchBar={false} />
+			<Container theme={this.props.theme}>
+				<Appbar searchBar={false} theme={this.props.theme}/>
 				<BackContainer>
 					<Link to="/" onClick={this.props.emptyCountryDetail}>
-						<Back>Back</Back>
+						<Back theme={this.props.theme}>Back</Back>
 					</Link>
 				</BackContainer>
 				{Object.keys(this.props.detail).length === 0 ? (
@@ -25,9 +25,9 @@ class CountryDetail extends Component {
 				) : (
 					<CountryDetailContainer>
 						<div>
-							<Image src={this.props.detail.flag} alt={this.props.detail.alpha3Code} />
+							<Image src={this.props.detail.flag} alt={this.props.detail.alpha3Code}  theme={this.props.theme}/>
 						</div>
-						<CountryData>
+						<CountryData theme={this.props.theme}>
 							<MakeBig>Name: {this.props.detail.name}</MakeBig>
 							<p>Code: {this.props.detail.alpha3Code}</p>
 							<p>Capital: {this.props.detail.capital}</p>
@@ -50,7 +50,7 @@ class CountryDetail extends Component {
 }
 
 const mapStateToProps = (state) => {
-	return { detail: state.countryDetail };
+	return { detail: state.countryDetail , theme: state.theme};
 };
 
 export default connect(mapStateToProps, { fetchCountryDetails, emptyCountryDetail })(CountryDetail);
