@@ -1,12 +1,12 @@
 export const lightTheme = {
-	homepagePri: '#eceeee',
+	homepagePri: 'red',
 	homepageSec: '#f1f4dc',
 	text: '#363537',
 	toggleBorder: '#FFF'
 };
 
 export const darkTheme = {
-	homepagePri: '#ccc',
+	homepagePri: 'blue',
 	homepageSec: '#fff',
 	text: '#363537',
 	toggleBorder: '#6B8096'

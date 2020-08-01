@@ -24,19 +24,18 @@ class Home extends Component {
 	};
 
 	render() {
-		console.log(this.props);
 		return (
 			<Container>
 				<Appbar search={this._searchTerm} searchBar />
 				<DropDown search={this._searchByRegion} />
-				<Grid data={this.props.countries} />
+				<Grid data={this.props.countries} view={this.props.view}/>
 			</Container>
 		);
 	}
 }
 
 const mapStateToProps = (state) => {
-	return { countries: state.countries };
+	return { countries: state.countries , view: state.view};
 };
 
 export default connect(mapStateToProps, { fetchCountry, fetchCountryBySearch, fetchCountryByRegion })(Home);

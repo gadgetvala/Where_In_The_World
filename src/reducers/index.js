@@ -24,7 +24,17 @@ const countriesDetailsReducer = (state = {}, action) => {
 	}
 };
 
+const changeViewReducer = (state = 'card view', action) => {
+	switch (action.type) {
+		case 'SET_VIEW':
+			return action.payload;
+		default:
+			return state;
+	}
+};
+
 export default combineReducers({
 	countries: countriesReducer,
-	countryDetail: countriesDetailsReducer
+	countryDetail: countriesDetailsReducer,
+	view: changeViewReducer
 });
